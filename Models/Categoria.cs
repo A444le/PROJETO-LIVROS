@@ -4,6 +4,6 @@
     {
         public int CategoriaId { get; set; }
         public string NomeCategoria { get; set; }
-        public List<Livro> Livros { get; set; } = new();
+        public List<Livro> Livros { get; set; } = new(); //Codigo para em categoria ver livros
     }
 }

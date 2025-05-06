@@ -37,7 +37,11 @@ prop+tab = criar uma propriedades
 3.5 - Criar os "tipos" do banco de dados, limites de cacteres
 3.6 - Fazer o codigo representacao da tabela
 3.6.1 - Criar as Primary Key 
-3.7 - 
+3.6.1 - Criar campo a campo referente a models
+3.7 - Criar as outras tabelas 
 
 4 - Inserir os codigos no terminal para criar o code first
+
+5 - Criar a Interface, Repository e Controller; (CRUD)
+
 */
