@@ -171,3 +171,4 @@ C:\Users\FIC\Desktop\ProjetoLivros\ProjetoLivros\ProjetoLivros\obj\Debug\net9.0\
 C:\Users\FIC\Desktop\ProjetoLivros\ProjetoLivros\ProjetoLivros\obj\Debug\net9.0\ProjetoLivros.genruntimeconfig.cache
 C:\Users\FIC\Desktop\ProjetoLivros\ProjetoLivros\ProjetoLivros\obj\Debug\net9.0\ref\ProjetoLivros.dll
 C:\Users\FIC\Desktop\ProjetoLivros\ProjetoLivros\ProjetoLivros\obj\Debug\net9.0\ProjetoLivros.sourcelink.json
+C:\Users\FIC\Desktop\ProjetoLivros\ProjetoLivros\ProjetoLivros\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

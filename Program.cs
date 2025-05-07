@@ -7,9 +7,25 @@ var builder = WebApplication.CreateBuilder(args);
 //dotnet ef migrations add Inicial // Crio a migration para o C# identificar o banco de dados
 //dotnet ef database update // Crio o Banco de dados
 
+
+//avisa que a aplicacao usa controllers
+builder.Services.AddControllers();
+
+//Adiciono o gerador de swagger
+builder.Services.AddSwaggerGen();
+
 builder.Services.AddDbContext<LivrosContext>();
 var app = builder.Build();
 
+//Avisa o .NET que eu tenho controladores
+app.MapControllers();
+
+app.UseSwagger();
+app.UseSwaggerUI(options => // Faz o Swagger abrir direto
+{
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+    options.RoutePrefix = string.Empty;
+});
 app.MapGet("/", () => "Hello World!");
 
 app.Run();

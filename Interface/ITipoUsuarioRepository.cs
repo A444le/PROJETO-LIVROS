@@ -3,30 +3,28 @@ using ProjetoLivros.ViewModels;
 
 namespace ProjetoLivros.Interface
 {
-    public interface IAssinatura
+    public interface ITipoUsuarioRepository
     {
-        //R - Read (Leitura)
-        //Retorno
-        List<ListarAssinaturaViewModel> ListarTodos();
+        List<TipoUsuario> ListarTodos();
 
 
         //Recebe um identificador, e retorna o produto correspondente
-        Assinatura BuscarPorId(int id);
+        Livro BuscarPorId(int id);
 
         //C - Create (Cadastro)
 
-        void Cadastrar(Assinatura assinatura);
+        void Cadastrar(TipoUsuario tipoUsuario);
 
         // U - Update (Atualizacao)
         // Recebe um identificador para encontrar um produto,
         // e recebe o produto novo para substituir o artigo 
 
-        void Atualizar(int id, Assinatura assinatura);
+        void Atualizar(int id, TipoUsuario tipoUsuario);
 
         //D - Delete (delecao)
         // Recebo o indentificador de quem quero excluir 
         void Deletar(int id);
 
-        List<Assinatura> BuscarAssinaturaPorNome(string assinatura);
+        List<TipoUsuario> BuscarTipoUsuarioPorNome(string tipoUsuario);
     }
 }
