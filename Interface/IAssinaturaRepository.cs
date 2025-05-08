@@ -1,4 +1,5 @@
-﻿using ProjetoLivros.Models;
+﻿using ProjetoLivros.DTO;
+using ProjetoLivros.Models;
 using ProjetoLivros.ViewModels;
 
 namespace ProjetoLivros.Interface
@@ -15,13 +16,13 @@ namespace ProjetoLivros.Interface
 
         //C - Create (Cadastro)
 
-        void Cadastrar(Assinatura assinatura);
+        void Cadastrar(CadastrarAssinaturaDto assinatura);
 
         // U - Update (Atualizacao)
         // Recebe um identificador para encontrar um produto,
         // e recebe o produto novo para substituir o artigo 
 
-        void Atualizar(int id, Assinatura assinatura);
+        void Atualizar(int id, CadastrarAssinaturaDto assinatura);
 
         //D - Delete (delecao)
         // Recebo o indentificador de quem quero excluir 

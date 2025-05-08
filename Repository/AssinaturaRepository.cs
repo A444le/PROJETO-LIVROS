@@ -1,55 +1,75 @@
-﻿using ProjetoLivros.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using ProjetoLivros.Context;
+using ProjetoLivros.DTO;
 using ProjetoLivros.Interface;
 using ProjetoLivros.Models;
+using static ProjetoLivros.Repository.AssinaturaRepository;
 
 namespace ProjetoLivros.Repository
 {
     public class AssinaturaRepository : IAssinaturaRepository
     {
-    
-            private readonly LivrosContext _context;
+        private readonly LivrosContext _context;
+
 
         public AssinaturaRepository(LivrosContext context)
         {
             _context = context;
         }
 
-
-        public void Atualizar(int id, Assinatura assinatura)
+        public void Atualizar(int id, CadastrarAssinaturaDto Assinatura)
         {
-            throw new NotImplementedException();
+            Assinatura assinaturaEncontrado = _context.Assinatura.Find(id);
+            if (assinaturaEncontrado == null)
+            {
+
+                assinaturaEncontrado.AssinaturaId = Assinatura.AssinaturaId;
+                assinaturaEncontrado.DataInicio = Assinatura.DataInicio;
+                assinaturaEncontrado.DataFim = Assinatura.DataFim;
+                assinaturaEncontrado.Status = Assinatura.Status;
+                assinaturaEncontrado.UsuarioId = Assinatura.UsuarioId;
+
+                //AssinaturaEncontrado.IdPedido = Assinatura.IdPedido;
+                _context.SaveChanges();
+            }
         }
 
-        public List<Assinatura> BuscarAssinaturaPorNome(string assinatura)
-        {
-            throw new NotImplementedException();
-        }
 
         public Assinatura BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            return _context.Assinatura.FirstOrDefault(a => a.AssinaturaId == id);
         }
-
-        public void Cadastrar(Assinatura assinatura)
+        //DTO
+        public void Cadastrar(CadastrarAssinaturaDto assinatura)
         {
-            _context.Assinatura.Add(assinatura);
+            Assinatura assinaturaEncontrado = new Assinatura
+            {
+                AssinaturaId = assinatura.AssinaturaId,
+                DataInicio = assinatura.DataInicio,
+                DataFim = assinatura.DataFim,
+                Status = assinatura.Status,
+                UsuarioId = assinatura.UsuarioId
+
+            };
+            //_context.Assinaturas.Add(AssinaturaCadastro);
             _context.SaveChanges();
         }
 
         public void Deletar(int id)
         {
-            var assinatura = _context.Assinatura.Find(id);
-            if (assinatura == null) throw new Exception();
-
-            _context.Assinatura.Remove(assinatura);
-
+            Assinatura assinaturaEncontrado = _context.Assinatura.Find(id);
+            if (assinaturaEncontrado == null)
+            {
+                throw new Exception();
+            }
+            _context.Assinatura.Remove(assinaturaEncontrado);
             _context.SaveChanges();
         }
-
-   
         public List<Assinatura> ListarTodos()
         {
-            return _context.Assinatura.ToList();
+            return _context.Assinatura.Include(a => a.AssinaturaId).ToList();
         }
     }
 }
+//_context.Assinatura.Include
+
